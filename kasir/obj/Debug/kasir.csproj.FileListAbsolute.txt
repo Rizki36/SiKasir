@@ -12,3 +12,4 @@ C:\Users\RIZKI\source\repos\kasir\kasir\obj\Debug\kasir.penjualanLayer.resources
 C:\Users\RIZKI\source\repos\kasir\kasir\obj\Debug\kasir.BarangLayer.resources
 C:\Users\RIZKI\source\repos\kasir\kasir\obj\Debug\kasir.RiwayatLayer.resources
 C:\Users\RIZKI\source\repos\kasir\kasir\obj\Debug\kasir.Resources.DetailTransaksiForm.resources
+C:\Users\RIZKI\source\repos\kasir\kasir\obj\Debug\kasir.csprojAssemblyReference.cache

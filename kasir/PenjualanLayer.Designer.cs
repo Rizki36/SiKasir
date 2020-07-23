@@ -39,6 +39,8 @@
             this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rtbKeterangan = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgv_list_barang = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
@@ -60,8 +62,6 @@
             this.lbTanggal_ = new System.Windows.Forms.Label();
             this.lbKasir_ = new System.Windows.Forms.Label();
             this.lbNoTransaksi_ = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.transaksiPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_keranjang)).BeginInit();
@@ -142,6 +142,7 @@
             this.dgv_keranjang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_keranjang.Size = new System.Drawing.Size(599, 223);
             this.dgv_keranjang.TabIndex = 2;
+            this.dgv_keranjang.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_keranjang_CellDoubleClick);
             this.dgv_keranjang.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgv_keranjang_KeyDown);
             // 
             // id
@@ -197,6 +198,34 @@
             this.label6.Size = new System.Drawing.Size(75, 16);
             this.label6.TabIndex = 1;
             this.label6.Text = "Keranjang";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.SystemColors.Control;
+            this.label8.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
+            this.label8.Location = new System.Drawing.Point(463, 264);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(318, 16);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "*Double click untuk menghapus dari keranjang";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.SystemColors.Control;
+            this.label7.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
+            this.label7.Location = new System.Drawing.Point(3, 264);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(305, 16);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "*Double click untuk menambah ke keranjang";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label5
             // 
@@ -436,34 +465,6 @@
             this.lbNoTransaksi_.Size = new System.Drawing.Size(94, 16);
             this.lbNoTransaksi_.TabIndex = 1;
             this.lbNoTransaksi_.Text = "No Transaksi";
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.SystemColors.Control;
-            this.label7.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
-            this.label7.Location = new System.Drawing.Point(3, 264);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(305, 16);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "*Double click untuk menambah ke keranjang";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.SystemColors.Control;
-            this.label8.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
-            this.label8.Location = new System.Drawing.Point(463, 264);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(318, 16);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "*Double click untuk menghapus dari keranjang";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // PenjualanLayer
             // 

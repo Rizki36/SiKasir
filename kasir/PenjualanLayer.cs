@@ -289,7 +289,6 @@ namespace kasir
 
         private void dgv_keranjang_KeyDown(object sender, KeyEventArgs e)
         {
-
             if (e.KeyCode == Keys.Enter && dgv_keranjang.CurrentCell != null)
                 dgv_keranjang_CellDoubleClick(sender, new DataGridViewCellEventArgs(0, dgv_keranjang.CurrentCell.RowIndex));
 
