@@ -17,7 +17,7 @@ namespace kasir
 
         public static string getConnectionString()
         {
-            string conString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\RIZKI\Documents\database.accdb";
+            string conString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=database.accdb";
             return conString;
         }
 
