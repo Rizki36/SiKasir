@@ -1,0 +1,14 @@
+C:\Users\RIZKI\source\repos\kasir\kasir\bin\Debug\kasir.exe.config
+C:\Users\RIZKI\source\repos\kasir\kasir\bin\Debug\kasir.exe
+C:\Users\RIZKI\source\repos\kasir\kasir\bin\Debug\kasir.pdb
+C:\Users\RIZKI\source\repos\kasir\kasir\obj\Debug\kasir.Properties.Resources.resources
+C:\Users\RIZKI\source\repos\kasir\kasir\obj\Debug\kasir.csproj.GenerateResource.cache
+C:\Users\RIZKI\source\repos\kasir\kasir\obj\Debug\kasir.csproj.CoreCompileInputs.cache
+C:\Users\RIZKI\source\repos\kasir\kasir\obj\Debug\kasir.exe
+C:\Users\RIZKI\source\repos\kasir\kasir\obj\Debug\kasir.pdb
+C:\Users\RIZKI\source\repos\kasir\kasir\obj\Debug\kasir.Resources.formDialog.resources
+C:\Users\RIZKI\source\repos\kasir\kasir\obj\Debug\kasir.mainForm.resources
+C:\Users\RIZKI\source\repos\kasir\kasir\obj\Debug\kasir.penjualanLayer.resources
+C:\Users\RIZKI\source\repos\kasir\kasir\obj\Debug\kasir.BarangLayer.resources
+C:\Users\RIZKI\source\repos\kasir\kasir\obj\Debug\kasir.RiwayatLayer.resources
+C:\Users\RIZKI\source\repos\kasir\kasir\obj\Debug\kasir.Resources.DetailTransaksiForm.resources
