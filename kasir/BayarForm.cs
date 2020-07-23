@@ -27,5 +27,10 @@ namespace kasir.Resources
         {
             this.Close();
         }
+
+        private void btnCetak_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

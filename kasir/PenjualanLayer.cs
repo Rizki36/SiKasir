@@ -1,23 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
-using Microsoft.VisualBasic;
-using System.Globalization;
 using kasir.Resources;
+using System.Globalization;
+using Microsoft.VisualBasic;
 
 namespace kasir
 {
-    public partial class mainForm : Form
+    public partial class PenjualanLayer : UserControl
     {
+        
         string pembeli_id = "pembeli-1";
         double total_harga = 0;
+        int length_string_pad = 8;
+
+        public PenjualanLayer()
+        {
+            InitializeComponent();
+        }
 
         /**
          * Mengenerate id dari tanggal sekarang + no transaksi
@@ -30,45 +37,34 @@ namespace kasir
             int id;
 
             CRUD.sql = "SELECT MAX(Cint(Mid(id,9))) FROM penjualan WHERE(((Left([id], 8)) = @date));";
-            OleDbCommand cmd = new OleDbCommand(CRUD.sql,CRUD.con);
+            OleDbCommand cmd = new OleDbCommand(CRUD.sql, CRUD.con);
             cmd.Parameters.AddWithValue("date", date);
-            DataTable dt =  CRUD.PerformCRUD(cmd);
+            DataTable dt = CRUD.PerformCRUD(cmd);
             if (dt.Rows[0][0].ToString() != string.Empty)
                 id = int.Parse(dt.Rows[0][0].ToString()) + 1;
             else
                 id = 1;
-            id_jadi = date + id.ToString();
+            id_jadi = date + id.ToString().PadLeft(length_string_pad, '0');
             tbNoTransaksi.Text = id_jadi;
         }
 
-        public mainForm()
+        private void btn_cari_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
+            string id = tb_cari_id.Text;
+            string nama = tb_cari_nama.Text;
+            load_data(id, nama);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void mainLayer_Load(object sender, EventArgs e)
         {
-            generateNoTransaksi();
-            tbKasir.Text = "Kasir-1";
-            loadData();
-            tb_cari_id.Focus();
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
+            //load_data();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (!checkBox1.Checked) 
+            if (!checkBox1.Checked)
                 tbKasir.Enabled = tbNoTransaksi.Enabled = dtpTanggal.Enabled = true;
-            else 
+            else
                 tbKasir.Enabled = tbNoTransaksi.Enabled = dtpTanggal.Enabled = false;
         }
 
@@ -78,19 +74,9 @@ namespace kasir
             CRUD.PerformCRUD(CRUD.cmd);
         }
 
-        private void AddParameters(string str)
+        public void load_data(string id = "", string nama = "")
         {
-            string noTransaksi = tbNoTransaksi.Text;
-            string kasir = tbKasir.Text;
-            string tanggal = dtpTanggal.Value.ToString();
-            CRUD.cmd.Parameters.AddWithValue("no",noTransaksi);
-            CRUD.cmd.Parameters.AddWithValue("kasir", noTransaksi);
-            CRUD.cmd.Parameters.AddWithValue("no", noTransaksi);
-        }
-
-        private void loadData(string id = "", string nama = "")
-        {
-            CRUD.sql = "SELECT * FROM produk WHERE id LIKE @id AND nama LIKE @nama;";
+            CRUD.sql = "SELECT id,nama,harga_jual,stok FROM produk WHERE id LIKE @id AND nama LIKE @nama;";
             CRUD.cmd = new OleDbCommand(CRUD.sql, CRUD.con);
 
             id = string.Format("%{0}%", id);
@@ -102,7 +88,7 @@ namespace kasir
             DataTable dt = CRUD.PerformCRUD(CRUD.cmd);
 
             DataGridView dgv = dgv_list_barang;
-            
+
             dgv.DataSource = dt;
 
             //dgv.AutoGenerateColumns = true;
@@ -111,15 +97,9 @@ namespace kasir
             dgv.Columns[1].HeaderText = "Nama Barang";
             dgv.Columns[2].HeaderText = "Harga Jual";
 
-            //dgv.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            //dgv.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //dgv.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-
-            //dgv.Columns[0].Width = 100;
-            //dgv.Columns[1].Width = 200;
-            //dgv.Columns[2].Width = 100;
-
-            //dgv.ReadOnly = true;
+            tbKasir.Text = "Kasir-1";
+            generateNoTransaksi();
+            tb_cari_id.Focus();
         }
 
         private void dgv_list_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -193,7 +173,7 @@ namespace kasir
                     total_harga += double.Parse(row.Cells["subtotal"].Value.ToString());
                 }
                 CultureInfo culture = CultureInfo.CreateSpecificCulture("id-ID");
-                string total_text = string.Format(culture,"{0:C}", Convert.ToDecimal(total_harga));
+                string total_text = string.Format(culture, "{0:C}", Convert.ToDecimal(total_harga));
                 lbTotal.Text = total_text;
             }
             catch (System.Exception ex)
@@ -201,53 +181,31 @@ namespace kasir
                 MessageBox.Show("Terjadi error: " + ex.Message);
             }
         }
-
-        private void btn_cari_Click(object sender, EventArgs e)
-        {
-            string id = tb_cari_id.Text;
-            string nama = tb_cari_nama.Text;
-            loadData(id, nama);
-        }
-
         
-
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        public void tb_cari_id_focus()
         {
-            if (e.Control && e.KeyCode== Keys.F)
-            {
-                tb_cari_id.Focus();
-            }
-
-            if (e.Control && e.KeyCode == Keys.Enter)
-            {
-                btn_bayar_Click(sender,e);
-            }
-
-            if (e.Control && e.KeyCode == Keys.L)
-            {
-                dgv_list_barang.Focus();
-            }
-
-            if (e.Control && e.KeyCode == Keys.K)
-            {
-                dgv_keranjang.Focus();
-            }
-
+            tb_cari_id.Focus();
         }
 
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        public void dgv_list_barang_focus()
         {
-            
+            dgv_list_barang.Focus();
         }
+
+        public void dgv_keranjang_focus() 
+        {
+            dgv_keranjang.Focus();
+        }
+
 
         // cari data ketika user klik enter 
         private void tb_cari_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 string id = tb_cari_id.Text;
                 string nama = tb_cari_nama.Text;
-                loadData(id, nama);
+                load_data(id, nama);
             }
         }
 
@@ -285,9 +243,9 @@ namespace kasir
                 counter += 1;
                 string id_detail_transaksi = noTransaksi + counter;
 
+                // Insert ke table detail_pembelian
                 CRUD.sql = "INSERT INTO detail_penjualan (id,penjualan_id,produk_id,qty,harga,sub_total) values(@id,@penjualan_id,@produk_id,@qty,@harga,@sub_total)";
                 CRUD.cmd = new OleDbCommand(CRUD.sql, CRUD.con);
-
                 CRUD.cmd.Parameters.AddWithValue("id", id_detail_transaksi);
                 CRUD.cmd.Parameters.AddWithValue("penjualan_id", noTransaksi);
                 CRUD.cmd.Parameters.AddWithValue("produk_id", row.Cells["id"].Value);
@@ -295,34 +253,46 @@ namespace kasir
                 CRUD.cmd.Parameters.AddWithValue("harga", row.Cells["harga"].Value);
                 CRUD.cmd.Parameters.AddWithValue("sub_total", row.Cells["subtotal"].Value);
                 CRUD.PerformCRUD(CRUD.cmd);
+
+                // Update stok di table
+                CRUD.sql = "UPDATE produk SET stok = stok - @qty WHERE id = @id";
+                CRUD.cmd = new OleDbCommand(CRUD.sql, CRUD.con);
+                CRUD.cmd.Parameters.AddWithValue("qty", row.Cells["qty"].Value);
+                CRUD.cmd.Parameters.AddWithValue("id", row.Cells["id"].Value);
+                CRUD.PerformCRUD(CRUD.cmd);
             }
         }
 
         private void btn_bayar_Click(object sender, EventArgs e)
         {
+            bayar();
+        }
+        public void bayar()
+        {
+            tb_cari_id.Focus(); 
             insert_penjualan();
             insert_detail_penjualan();
             formDialog dialog = new formDialog();
             dialog.ShowDialog(this);
             generateNoTransaksi();
-            tb_cari_id.Focus();
             dgv_keranjang.Rows.Clear();
-
+            lbTotal.Text = "0,00";
+            total_harga = 0;
+            load_data();
         }
 
         private void dgv_list_barang_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter && dgv_list_barang.CurrentCell != null)
-                dgv_list_CellDoubleClick(sender,new DataGridViewCellEventArgs(0,dgv_list_barang.CurrentCell.RowIndex));
+                dgv_list_CellDoubleClick(sender, new DataGridViewCellEventArgs(0, dgv_list_barang.CurrentCell.RowIndex));
         }
 
         private void dgv_keranjang_KeyDown(object sender, KeyEventArgs e)
         {
-            
+
             if (e.KeyCode == Keys.Enter && dgv_keranjang.CurrentCell != null)
                 dgv_keranjang_CellDoubleClick(sender, new DataGridViewCellEventArgs(0, dgv_keranjang.CurrentCell.RowIndex));
-            
-        }
 
+        }
     }
 }

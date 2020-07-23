@@ -117,41 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnMinimize.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAO9JREFUSEvt
-        VsENgzAMZJSOwEbtJu0GwASwSdmEbAAbtHfpUSVpQv2hn3LSScY520Gyk1QlNE1Tt207gxPsk9wR6Oc6
-        ddTLbUfXdQP4EG9yR6A/0Axy24GgMUhgKTLKbQeDggRHkRfURT14TzgHCb4WoT6JJ3vfdTCWVbhBy59k
-        ifwzhS5dSIndXJQ3Av05fULnBwoGd5RlqcAKFcrGkswv6YG/g7rrusGzpFmou3Jxnr67YOw6JxjG6RcT
-        v3A3NT54QfFAfDMpbjm7qI9ygAPzS/4JicxFwOPS2r/I/q8VdoU6xsEuvru4Tl25i6rqCVuMa63f3goq
-        AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnClose.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAASFJREFUSEut
-        lIuNwjAQRFMCJVDClUAJlEAJdHDpIJ8GoBPo4K4D6AA6uJsxHgkiY6/XjDSyvbvZFyvadMMwfI3jeJqm
-        6Q/rAedV1yj02KLXBb6h73cIYnMmREbypwWGZ3fP/WjENgS9BGkvLAWJ7gk6LoLBtbAMhDdas2CFw+8y
-        SVthBcguloVCN8wMkTywaohUA3NDJAusGSIVYJdUnK6CSDlYyi6IZIU1QaQIuy6by/M872Npm/i2KYBc
-        mjOTShC5CWaFyC5YDsJvgtU01FnlIMzFmuJQh2bvZIFIblgNRKqGeSCSGYbNNlVElyBSCRaKcEhOvRUi
-        5WChF4j3ZMKhd7Dwm8Kmfw56IdISxoswpuQGwR7rOgQ+IL4wb/KAdN0/G6GNWbUPOPsAAAAASUVORK5C
-        YII=
-</value>
-  </data>
-  <metadata name="id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Nama.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Harga.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="qty.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="subtotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
 </root>

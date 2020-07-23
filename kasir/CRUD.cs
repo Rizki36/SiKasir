@@ -21,13 +21,13 @@ namespace kasir
             return conString;
         }
 
-        public static DataTable PerformCRUD(OleDbCommand com)
+        public static DataTable PerformCRUD(OleDbCommand cmd)
         {
             OleDbDataAdapter da = default(OleDbDataAdapter);
             DataTable dt = new DataTable();
             try
             {
-                da = new OleDbDataAdapter(com);
+                da = new OleDbDataAdapter(cmd);
                 da.Fill(dt);
                 return dt;
             }

@@ -46,6 +46,7 @@
             this.btnCetak.TabIndex = 1;
             this.btnCetak.Text = "Cetak";
             this.btnCetak.UseVisualStyleBackColor = false;
+            this.btnCetak.Click += new System.EventHandler(this.btnCetak_Click);
             // 
             // label1
             // 
