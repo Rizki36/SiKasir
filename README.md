@@ -8,13 +8,13 @@ Sistem Informasi Kasir
 bin/debug/kasir.exe
 
 ## Fitur
-[x] Tambah, Update, Hapus Barang
-[x] Penjualan
-[x] Riwayat transaksi
-[x] Detail transaksi
-[X] Cari barang di list barang transaksi
-[ ] Barang di gudang
-[ ] Supplier barang
+- [x] Tambah, Update, Hapus Barang
+- [x] Penjualan
+- [x] Riwayat transaksi
+- [x] Detail transaksi
+- [X] Cari barang di list barang transaksi
+- [ ] Barang di gudang
+- [ ] Supplier barang
 
 ## Manual
 ### Tambah barang
